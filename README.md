@@ -4,7 +4,7 @@
 # 多个 main 函数的报错
 在 clion 中写完一题，想写下一题，结果发现 main 函数不能运行
 
-![none-main](http://image.cugxuan.cn/Software/clion/none-main.png/)
+![none-main](http://image.cugxuan.cn/Software/clion/none-main.png)
 
 # 解决方法
 
@@ -20,4 +20,4 @@ Mac 如果没有执行权限，在终端加入执行权限
 `$ chmod a+x Generate_Clion_Mac`
 
 在写完 cpp 文件后，放入 clion 项目运行即可，记得第一次打开自动 Enable CMakeLists.txt 的修改，否则可能需要 Rebuild
-![generate](http://image.cugxuan.cn/Software/clion/generate.png/)
+![generate](http://image.cugxuan.cn/Software/clion/generate.png)
