@@ -1,20 +1,43 @@
 在写 C++ 的题目的时候经常会遇到这样的问题，写了多个 cpp 文件，在 clion 中编译报错不能同时存在多 main 函数
-这里写了一个小程序优雅地解决这个问题
+~~这里写了一个小程序优雅地解决这个问，非常简单，就是就是读字符串写文件~~
+直接修改一下 CMake 自动遍历文件即可
 
 # 多个 main 函数的报错
+
 在 clion 中写完一题，想写下一题，结果发现 main 函数不能运行
 
 ![none-main](http://image.cugxuan.cn/Software/clion/none-main.png)
+
+# 正确的解决方法
+
+在牛客用户[AAnonymous](https://www.nowcoder.com/profile/214695)的告知下，直接修改 CMake 即可，自己写了一个傻傻的方法。在后面加入一段即可，以我的 Project 的 CMakeList.txt 为例
+
+```
+cmake_minimum_required(VERSION 3.15)
+project(JZ_offer)
+
+set(CMAKE_CXX_STANDARD 14)
+
+# 遍历项目根目录下所有的 .cpp 文件
+file (GLOB files *.cpp)
+foreach (file ${files})
+    string(REGEX REPLACE ".+/(.+)\\..*" "\\1" exe ${file})
+    add_executable (${exe} ${file})
+    message (\ \ \ \ --\ src/${exe}.cpp\ will\ be\ compiled\ to\ bin/${exe})
+endforeach ()
+```
 
 # 解决方法
 
 需要在 clion 工程下 `CMakeLists.txt` 中加入对应的 `add_executable(1.cpp 1.cpp)` 即可
 
 我编写了一个程序读取文件然后自动添加，大家可以直接下载
+
 - [Win](https://github.com/cugxuan/Clion-CMakeList/releases/download/1.0/Generate_Clion_Win.exe)
 - [Mac](https://github.com/cugxuan/Clion-CMakeList/releases/download/1.0/Generate_Clion_Mac)
 
 # 使用方法
+
 终端执行或者双击打开，win 用户下载后直接打开即可
 Mac 如果没有执行权限，在终端加入执行权限
 `$ chmod a+x Generate_Clion_Mac`
