@@ -7,6 +7,7 @@
 在 clion 中写完一题，想写下一题，结果发现 main 函数不能运行
 
 ![none-main](http://image.cugxuan.cn/Software/clion/none-main.png)
+<<<<<<< HEAD
 
 # 正确的解决方法
 
@@ -26,6 +27,8 @@ foreach (file ${files})
     message (\ \ \ \ --\ src/${exe}.cpp\ will\ be\ compiled\ to\ bin/${exe})
 endforeach ()
 ```
+=======
+>>>>>>> cb2248eb04d2d93cfa5dd3da912393adb67a3821
 
 # 解决方法
 
